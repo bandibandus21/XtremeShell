@@ -1,7 +1,4 @@
-using System;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Threading;
 
@@ -15,7 +12,11 @@ namespace XtremeShell5
             bool hasChoco = await Task.Run(IsChocolateyInstalled);
 
             if (hasChoco)
+            {
+                PackageStoreTab.IsEnabled = true;
                 return;
+            }
+
 
             var result = MessageBox.Show(
                 "Chocolatey is not installed. Do you want to install it now?",
@@ -37,34 +38,18 @@ namespace XtremeShell5
                         MessageBoxButton.OK,
                         MessageBoxImage.Information);
 
-                    HidePackageStoreTab();
+                    PackageStoreTab.IsEnabled = false;
                 }
                 else
                 {
-                    bmLog.Text = "Chocolatey installed successfully.";
+                    bmLog.Text = "Chocolatey installed successfully. Please restart XtremeShell.";
                 }
             }
             else
             {
                 bmLog.Text = "WARNING: Chocolatey is not installed. Package Store is unavailable.";
-                HidePackageStoreTab();
+                PackageStoreTab.IsEnabled = false;
             }
-        }
-
-        private void HidePackageStoreTab()
-        {
-            if (PackageStoreTab != null)
-            {
-                PackageStoreTab.Visibility = Visibility.Collapsed;
-                return;
-            }
-
-            var tab = RootTabs?.Items
-                .OfType<System.Windows.Controls.TabItem>()
-                .FirstOrDefault(t => (t.Header as string)?.Equals("Package Store", StringComparison.OrdinalIgnoreCase) == true);
-
-            if (tab != null)
-                tab.Visibility = Visibility.Collapsed;
         }
 
         private static bool IsChocolateyInstalled()
@@ -199,9 +184,19 @@ choco upgrade chocolatey -y --no-progress
                     onOut: async s => await AppendLogAsync(s),
                     onErr: async s => await AppendLogAsync(s));
 
-                await SetStatusAsync(code == 0
-                    ? "Chocolatey installed/upgraded successfully."
-                    : $"Chocolatey install/upgrade failed (exit {code}).");
+                if (code == 0)
+                {
+                    await SetStatusAsync("Chocolatey installed/upgraded successfully.");
+
+                    await Dispatcher.InvokeAsync(() =>
+                    {
+                        PackageStoreTab.IsEnabled = true;
+                    });
+                }
+                else
+                {
+                    await SetStatusAsync($"Chocolatey install/upgrade failed (exit {code}).");
+                }
             }
             catch (Exception ex)
             {

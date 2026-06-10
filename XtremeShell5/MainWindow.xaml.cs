@@ -47,12 +47,21 @@ namespace XtremeShell5
 
         private void xsVersion_Click(object sender, RoutedEventArgs e)
         {
-            string url = "https://xtremeshell.neonity.hu";
             Process.Start(new ProcessStartInfo
             {
-                FileName = url,
+                FileName = "https://xtremeshell.neonity.hu",
                 UseShellExecute = true
             });
+        }
+
+        private void DebloatBrave_Click(object sender, RoutedEventArgs e)
+        {
+            BraveDebloatWindow window = new BraveDebloatWindow
+            {
+                Owner = this
+            };
+
+            window.ShowDialog();
         }
 
         private async void button_Click(object sender, RoutedEventArgs e)
@@ -2064,6 +2073,15 @@ foreach ($path in $ifeoPaths)
 
         // === HELPER METHODS ===
 
+        private void xsBanner_Click(object sender, MouseButtonEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = "https://xtremeshell.neonity.hu",
+                UseShellExecute = true
+            });
+        }
+
         private void RestartExplorer()
         {
             RunCommand("taskkill", "/f /im explorer.exe");
@@ -2086,5 +2104,7 @@ foreach ($path in $ifeoPaths)
                 process?.WaitForExit();
             }
         }
+
+
     }
 }
