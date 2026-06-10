@@ -35,9 +35,10 @@ namespace XtremeShell5
             AddOption("Disable Brave VPN", "BraveVPNDisabled", 1);
             AddOption("Enable Manifest V2 Extensions", "ExtensionManifestV2Availability", 2);
             AddOption("Disable Brave Leo AI Chat", "BraveAIChatEnabled", 0);
+            AddOption("Disable Brave Talk", "BraveTalkDisabled", 1);
 
             AddOption("Block Geolocation", "DefaultGeolocationSetting", 2);
-            AddOption("Block Notifications", "DefaultNotificationsSetting", 2);
+            AddOption("Block Notifications", "DefaultNotificationsSetting", 2);            
             AddOption("Block Local Fonts Access", "DefaultLocalFontsSetting", 2);
             AddOption("Block Sensors Access", "DefaultSensorsSetting", 2);
             AddOption("Block Serial Port Access", "DefaultSerialGuardSetting", 2);
