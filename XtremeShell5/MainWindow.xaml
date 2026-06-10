@@ -1087,7 +1087,7 @@
                 </Grid>
             </TabItem>
         </TabControl>
-        <Image x:Name="xsBanner" HorizontalAlignment="Left" Height="41" Margin="671,23,0,0" VerticalAlignment="Top" Width="258" Source="/banner.png" MouseLeftButtonUp="xsBanner_Click"/>
-        <Label x:Name="xsVersion" Content="5.3" HorizontalAlignment="Left" Margin="929,23,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24" FontWeight="Bold" MouseLeftButtonUp="xsVersion_Click"/>
+        <Image x:Name="xsBanner" HorizontalAlignment="Left" Height="41" Margin="660,23,0,0" VerticalAlignment="Top" Width="258" Source="/banner.png" MouseLeftButtonUp="xsBanner_Click"/>
+        <Label x:Name="xsVersion" Content="5.3.1" HorizontalAlignment="Left" Margin="918,23,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24" FontWeight="Bold" MouseLeftButtonUp="xsVersion_Click"/>
     </Grid>
 </Window>
