@@ -30,44 +30,40 @@ namespace XtremeShell5
         private void LoadOptions()
         {
             AddOption("Disable Brave Sync", "SyncDisabled", 1);
+            AddOption("Disable Tor Private Window", "TorDisabled", 1);
+            AddOption("Enable Manifest V2 Extensions", "ExtensionManifestV2Availability", 2);
             AddOption("Disable Brave Rewards", "BraveRewardsDisabled", 1);
             AddOption("Disable Brave Wallet", "BraveWalletDisabled", 1);
             AddOption("Disable Brave VPN", "BraveVPNDisabled", 1);
-            AddOption("Enable Manifest V2 Extensions", "ExtensionManifestV2Availability", 2);
             AddOption("Disable Brave Leo AI Chat", "BraveAIChatEnabled", 0);
             AddOption("Disable Brave Talk", "BraveTalkDisabled", 1);
             AddOption("Disable Brave News", "BraveNewsDisabled", 1);
-
             AddOption("Block Geolocation", "DefaultGeolocationSetting", 2);
             AddOption("Block Notifications", "DefaultNotificationsSetting", 2);            
             AddOption("Block Local Fonts Access", "DefaultLocalFontsSetting", 2);
             AddOption("Block Sensors Access", "DefaultSensorsSetting", 2);
             AddOption("Block Serial Port Access", "DefaultSerialGuardSetting", 2);
-
+            AddOption("Block MIDI SysEx Access", "DefaultMidiSetting", 2);
+            AddOption("Block Web Bluetooth Access", "DefaultWebBluetoothGuardSetting", 2);
             AddOption("Disable Cloud Reporting", "CloudReportingEnabled", 0);
             AddOption("Disable Google Drive Integration", "DriveDisabled", 1);
-
             AddOption("Disable Password Manager", "PasswordManagerEnabled", 0);
             AddOption("Disable Password Sharing", "PasswordSharingEnabled", 0);
             AddOption("Disable Password Leak Detection", "PasswordLeakDetectionEnabled", 0);
             AddOption("Disable Quick Answers", "QuickAnswersEnabled", 0);
-
             AddOption("Disable Safe Browsing Extended Reporting", "SafeBrowsingExtendedReportingEnabled", 0);
             AddOption("Disable Safe Browsing Surveys", "SafeBrowsingSurveysEnabled", 0);
             AddOption("Disable Safe Browsing Deep Scanning", "SafeBrowsingDeepScanningEnabled", 0);
-
             AddOption("Disable Device Activity Heartbeat", "DeviceActivityHeartbeatEnabled", 0);
             AddOption("Disable Device Metrics Reporting", "DeviceMetricsReportingEnabled", 0);
             AddOption("Disable Browser Heartbeat", "HeartbeatEnabled", 0);
             AddOption("Disable Log Upload", "LogUploadEnabled", 0);
-
             AddOption("Disable App Inventory Reporting", "ReportAppInventory", "");
             AddOption("Disable Device Activity Time Reporting", "ReportDeviceActivityTimes", 0);
             AddOption("Disable Device App Info Reporting", "ReportDeviceAppInfo", 0);
             AddOption("Disable Device System Info Reporting", "ReportDeviceSystemInfo", 0);
             AddOption("Disable Device User Reporting", "ReportDeviceUsers", 0);
             AddOption("Disable Website Telemetry Reporting", "ReportWebsiteTelemetry", "");
-
             AddOption("Disable Alternate Error Pages", "AlternateErrorPagesEnabled", 0);
             AddOption("Disable Credit Card Autofill", "AutofillCreditCardEnabled", 0);
             AddOption("Disable Background Mode", "BackgroundModeEnabled", 0);
